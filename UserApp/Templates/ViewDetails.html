@@ -1,0 +1,31 @@
+{%extends "master.html"%}
+
+{%block "contents"%}
+ <h1>View NewArrival Details!!</h1> 
+<form method="post" action="/AddToCart">
+    {%csrf_token%}
+ <table class="table">
+ <tr><td>Arrival Name</td>
+        <td><input type="hidden" name="nid" value="{{NewArrivals.id}}"/>{{arrival.name}}</td></tr>
+ <tr><td>Arrival Code</td>
+        <td>{{arrival.Code}}</td></tr>
+ <tr><td>Arrival Description</td>
+        <td>{{arrival.Description}}</td></tr>
+ <tr><td>category</td>
+        <td>{{arrival.category.Category_name}}</td></tr>
+ <tr><td>BookForME</td>
+        <td><select class="form-control" name="qty">           
+            <option >1</option>
+            <option >2</option>
+            <option >3</option>
+            <option >4</option>
+            <option >5</option>    
+        </select></td></tr>
+ <tr><td><button class="button btn-success" type="submit"> Book For Me </button></td>
+        <td><img src="{{arrival.images.url}}" class = "img-thumbnail" class="center-block" style="height:300px;width:300;">
+ </td></tr>
+    
+</table>
+</form>
+ 
+{%endblock%}
